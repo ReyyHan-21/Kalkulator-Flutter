@@ -62,17 +62,17 @@ class _CalculatorState extends State<Calculator> {
   }
 
   String evaluateExpression(String expression) {
-    final parseExpression = Expression.parse(expression); //
-    final evaluator = ExpressionEvaluator(); //
-    final result = evaluator.eval(parseExpression, {}); //
-    return result.toString(); //
+    final parseExpression = Expression.parse(expression); // digunakan untuk mengonversi string menjadi expression yang dapat dipahami oleh komputer
+    final evaluator = ExpressionEvaluator();
+    final result = evaluator.eval(parseExpression, {}); // digunakan untuk mengonversi expression menjadi string
+    return result.toString(); // Mengembalikan hasil dari expression
   }
 
 // digunakan untuk membuat tombol
   Widget buildButton(String buttonText, Color color,
-      {double widthFactory = 1.0}) {
-    return Expanded(
-      flex: widthFactory.toInt(),
+      {double widthFactory = 1.0}) { // fungsi ini digunakan untuk membuat widget tombol dengan text, warna dan ukuran yang sudah ditentukan
+    return Expanded( // digunakan untuk membuat widget tombol
+      flex: widthFactory.toInt(), 
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ElevatedButton(
@@ -81,9 +81,9 @@ class _CalculatorState extends State<Calculator> {
               backgroundColor: color,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40.0)),
-              elevation: 0,
+              elevation: 0, // mengatur bayangan tombol menjadi 0 dan tampak datar
             ),
-            onPressed: () => buttonPressed(buttonText),
+            onPressed: () => buttonPressed(buttonText), //ketika ditekan, fungsi buttonPressed dipanggil dengan parameter buttonText
             child: Text(
               buttonText,
               style: TextStyle(
@@ -100,7 +100,7 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.stretch, // digunakan untuk membuat widget tampak lebih rapat
         children: <Widget>[
           Expanded(
             child: Container(
